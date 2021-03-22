@@ -22,42 +22,44 @@ public class BankAccount {
         this.owner = checkName(owner);
         this.password = makePassword();
         
-        if (this.owner == "Nome inválido")
+        if (this.owner == "Nome invÃ¡lido")
         	System.exit(0);
     }
     
-    // EXERCICIO 2 - MÉTODO TRANSFER
+    // EXERCICIO 2 - MÃ‰TODO TRANSFER
     public void transfer(double valor, BankAccount target) {
-        double newBalance = this.balance - valor;
+    	//Tira o valor da conta de origem
+	double newBalance = this.balance - valor;
         this.balance = newBalance;
-            
+        
+	//Adiciona na conta de destino
         double newBalance1 = target.balance + valor;
         target.balance = newBalance1;
     }
     
-    // EXERCICIO 4 - MÉTODO CHECKNAME
+    // EXERCICIO 4 - MÃ‰TODO CHECKNAME
     private static String checkName(String owner) {
     	// Checa se tem digitos ou caracteres especiais no owner
     	if (owner.matches(".*[ -@].*")) {
-    		System.out.printf("Nome inválido de conta '%s'", owner);
-			System.exit(0);
-    		return "Qualquer coisa só para evitar o erro KKKKK";
+    		System.out.printf("Nome invÃ¡lido de conta '%s'", owner);
+		System.exit(0);
+    		return "Qualquer coisa sÃ³ para evitar o erro KKKKK";
     	} 
     	else 
     		return owner;
     }
     
-    // EXERCICIO 5 - MÉTODO MAKE PASSWORD
+    // EXERCICIO 5 - MÃ‰TODO MAKE PASSWORD
     private static String makePassword() {
     	// Letras usadas na senha
     	String characters = "abcdefghijklmnopqrstuvwxyz";
     	int lengthS = 3;
     	
-    	// Números usados na senha
+    	// NÃºmeros usados na senha
     	String numbers = "0123456789";
     	int lengthN = 4;
     	
-    	// String que armazenará a senha gerada
+    	// String que armazenarÃ¡ a senha gerada
     	String randomPassword = "";
     	
     	Random rand = new Random();
@@ -67,7 +69,7 @@ public class BankAccount {
     		randomPassword += characters.charAt(rand.nextInt(26));
     	}
     	
-    	// Gera 4 números aleatoriamente e adiciona na senha
+    	// Gera 4 nÃºmeros aleatoriamente e adiciona na senha
     	for (int i = 0; i < lengthN; i++) {
     		randomPassword += numbers.charAt(rand.nextInt(10));
     	}
